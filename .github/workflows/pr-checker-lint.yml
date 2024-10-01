@@ -1,16 +1,88 @@
-name: jira-lint
-on: [pull_request]
+name: PR checker
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, edited, synchronize]
 
 jobs:
-  jira-lint:
+  validate-pr:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
-      - uses: cleartax/jira-lint@master
-        name: jira-lint
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          jira-token: ${{ secrets.JIRA_TOKEN }}
-          jira-base-url: https://mentoring-itra-ak.atlassian.net/
-          skip-branches: '^(production-release|master|release\/v\d+)$'
-          skip-comments: true
-          pr-threshold: 1000
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Delete previous comments
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const comments = await github.rest.issues.listComments({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+          });
+
+          const botComments = comments.data.filter(comment => comment.user.login === 'github-actions[bot]');
+
+          for (const comment of botComments) {
+            await github.rest.issues.deleteComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: comment.id,
+            });
+          }
+
+    - name: Validate PR title and description
+      id: validate
+      run: |
+        # Fetching PR title and description
+        PR_TITLE="${{ github.event.pull_request.title }}"
+        PR_BODY="${{ github.event.pull_request.body }}"
+        echo "PR title - $PR_TITLE - ${#PR_TITLE}"
+        echo "PR body - $PR_BODY - ${#PR_BODY}"
+
+        # Define the regex pattern for the PR title
+        TITLE_REGEX=".*MT-[0-9]+.*"
+        
+        # Validate the PR title using the regex
+        if [[ ! "$PR_TITLE" =~ $TITLE_REGEX || ${#PR_TITLE} -lt 10 ]]; then
+          echo "PR title does not match the required format: [MT-<number> followed by at least 10 characters]"
+          echo "::set-output name=valid::false"
+        elif [[ ${#PR_BODY} -lt 15 ]]; then
+          echo "PR description is too short"
+          echo "::set-output name=valid::false"
+        else
+          echo "PR is valid"
+          echo "::set-output name=valid::true"
+        fi
+
+    - name: Comment on PR if validation fails
+      if: steps.validate.outputs.valid == 'false'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: "🚨 The PR title or description is invalid. Please ensure the title has JIRA ticket number. The description should be at least 15 characters long."
+          })
+
+    - name: Comment on PR if validation succeeds
+      if: steps.validate.outputs.valid == 'true'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: "✅ PR title and description are valid! Great job! ![Success](https://raw.githubusercontent.com/batonkarton/MentoAD/main/.github/success.png)"
+          })
+
+    - name: Check validation result
+      if: steps.validate.outputs.valid == 'false'
+      run: |
+        echo "Validation failed. Failing the pipeline."
+        exit 1
