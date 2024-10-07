@@ -36,7 +36,7 @@
   "keyToString": {
     ".NET Project.MentoringHomeWork.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Rebasing feature/MT-7-Topic2-HomeWork",
+    "git-widget-placeholder": "feature/MT-7-Topic2-HomeWork",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -114,7 +114,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728317280127</updated>
-      <workItem from="1728317282408" duration="1568000" />
+      <workItem from="1728317282408" duration="1780000" />
     </task>
     <servers />
   </component>
