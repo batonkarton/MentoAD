@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentoringHomeWork", "MentoringHomeWork\MentoringHomeWork.csproj", "{1AB5815C-2F1D-4132-82D9-0D93C478EB6F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentoringHomeWork", "MentoringHomeWork.csproj", "{DA9EABA4-0246-4642-9032-57B8A84AA2AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1AB5815C-2F1D-4132-82D9-0D93C478EB6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1AB5815C-2F1D-4132-82D9-0D93C478EB6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1AB5815C-2F1D-4132-82D9-0D93C478EB6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1AB5815C-2F1D-4132-82D9-0D93C478EB6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA9EABA4-0246-4642-9032-57B8A84AA2AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA9EABA4-0246-4642-9032-57B8A84AA2AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA9EABA4-0246-4642-9032-57B8A84AA2AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA9EABA4-0246-4642-9032-57B8A84AA2AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
