@@ -7,7 +7,7 @@ class Program
     static void Main(string[] args)
     {
       
-        StreamReader textReader = new StreamReader(@"/Users/lexadior/Documents/MentoAD/MentoAD/HW2/HW2.0/image.txt", true);
+        StreamReader textReader = new StreamReader(@"/Users/lexadior/Documents/MentoAD/MentoringHomeWork/HW2/HW2.0/image.txt", true);
         string textReaderResult = textReader.ReadToEnd();
         string[] arrayOfTextResult = textReaderResult.Split(' ');
         textReader.Dispose();
@@ -20,7 +20,7 @@ class Program
          
 
         }
-        File.WriteAllBytes(@"/Users/lexadior/Documents/MentoAD/MentoAD/HW2/HW2.0/image100.png", imageBytes);
+        File.WriteAllBytes(@"/Users/lexadior/Documents/MentoAD/MentoringHomeWork/HW2/HW2.0/image100.png", imageBytes);
  
     }
 }
