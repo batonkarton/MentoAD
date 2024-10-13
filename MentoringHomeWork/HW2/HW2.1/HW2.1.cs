@@ -10,6 +10,5 @@ class Program
         object a = number;
         object b = (object) number;
         int number3 = (int) number; 
-        
     }
 }
