@@ -1,9 +1,8 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentoringHomeWork", "MentoringHomeWork\HW2\MentoringHomeWork.csproj", "{0F2ADFBF-DFF9-41A3-9E73-BFAACE9A28CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "MentoringHomeWork\HW3.0\HW3\ConsoleApp1\ConsoleApp1.csproj", "{FDB7EDB4-626F-4905-B110-EB118A5FA752}"
-EndProject
+
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hw3", "MentoringHomeWork\HW3.0\hw3\hw3.csproj", "{764E1FDC-60A0-437C-B912-4D40A1A0EE21}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW03.Calculator.Static", "MentoringHomeWork\HW3.0\HW03.Calculator.Static\HW03.Calculator.Static.csproj", "{09DCF096-A039-43DB-8147-F101D98DC5B0}"
