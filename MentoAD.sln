@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hw3", "MentoringHomeWork\HW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW03.Calculator.Static", "MentoringHomeWork\HW3.0\HW03.Calculator.Static\HW03.Calculator.Static.csproj", "{09DCF096-A039-43DB-8147-F101D98DC5B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW03.Birthday", "MentoringHomeWork\HW3.0\HW03.Birthday\HW03.Birthday.csproj", "{6E851AD7-F6F1-4DBF-BEBB-D7922E194A3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{09DCF096-A039-43DB-8147-F101D98DC5B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09DCF096-A039-43DB-8147-F101D98DC5B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09DCF096-A039-43DB-8147-F101D98DC5B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E851AD7-F6F1-4DBF-BEBB-D7922E194A3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E851AD7-F6F1-4DBF-BEBB-D7922E194A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E851AD7-F6F1-4DBF-BEBB-D7922E194A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E851AD7-F6F1-4DBF-BEBB-D7922E194A3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
