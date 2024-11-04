@@ -1,8 +1,6 @@
-using System;
+namespace HW03.Calculator.Static.HW_Calculator;
 
-namespace HW3.HW_Calculator;
-
-public class Calculator
+public static class Calculator
 {
   public static void Plus(string num1, string num2)
   {
@@ -11,45 +9,54 @@ public class Calculator
     var number2 = Convert.ToInt32(num2);
     var result = number1 + number2;
 
-    Console.WriteLine("result:" + result);
+    Console.WriteLine("Plus result:" + result);
   }
 
   public static void Minus(string num1, string num2)
   {
     var number1 = Convert.ToInt32(num1);
     var number2 = Convert.ToInt32(num2);
+    
     var result = number1 - number2;
-    Console.WriteLine("result:" + result);
+    
+    Console.WriteLine("Minus result:" + result);
   }
 
-  public static void Multiplication(string num1, string num2)
+  public static void Multiply(string num1, string num2)
   {
     var number1 = Convert.ToInt32(num1);
     var number2 = Convert.ToInt32(num2);
+    
     var result = number1 * number2;
-    Console.WriteLine("result:" + result);
+    
+    Console.WriteLine("Multiplication result:" + result);
   }
 
-  public static void Dividing(string num1, string num2)
+  public static void Divide(string num1, string num2)
   {
     var number1 = int.Parse(num1);
     var number2 = int.Parse(num2);
+    
     var result = number1 / number2;
-    Console.WriteLine("result:" + result);
+    
+    Console.WriteLine("Dividing result:" + result);
   }
 
-  public static void Remainder(string num1, string num2)
+  public static void CalculateTheRemainder(string num1, string num2)
   {
     var number1 = int.Parse(num1);
     var number2 = int.Parse(num2);
+    
     var result = number1 % number2;
-    Console.WriteLine("result:" + result);
+    
+    Console.WriteLine("Remainder result:" + result);
   }
 
-  public static void Circle(string radius)
+  public static void CalculateTheCircle(string radius)
   {
-    var result = int.Parse(radius);
-    double area = Math.PI * result * result;
+    var parsedRadius = int.Parse(radius);
+    var result = Math.PI * parsedRadius * parsedRadius;
+    
+    Console.WriteLine("Circle result:" + result);
   }
-
 }
