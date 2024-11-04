@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW03.Calculator.Static", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW03.Birthday", "MentoringHomeWork\HW3.0\HW03.Birthday\HW03.Birthday.csproj", "{6E851AD7-F6F1-4DBF-BEBB-D7922E194A3A}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1", "MentoringHomeWork\HW4\Task1\Task1.csproj", "{B2173FE3-91E1-454A-8B72-07412ABACB2E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2", "MentoringHomeWork\HW4\Task2\Task2.csproj", "{5B6E2BDA-1961-4124-9219-9246C5738F81}"
@@ -19,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4", "MentoringHomeWork\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task6", "MentoringHomeWork\HW4\Task6\Task6.csproj", "{55CFB186-E84A-44AF-A627-E1A4058DB3DA}"
 EndProject
+=======
+>>>>>>> 63e10f4 (HW3 birthday)
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +48,7 @@ Global
 		{6E851AD7-F6F1-4DBF-BEBB-D7922E194A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E851AD7-F6F1-4DBF-BEBB-D7922E194A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E851AD7-F6F1-4DBF-BEBB-D7922E194A3A}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{B2173FE3-91E1-454A-8B72-07412ABACB2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B2173FE3-91E1-454A-8B72-07412ABACB2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2173FE3-91E1-454A-8B72-07412ABACB2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,5 +69,7 @@ Global
 		{55CFB186-E84A-44AF-A627-E1A4058DB3DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55CFB186-E84A-44AF-A627-E1A4058DB3DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55CFB186-E84A-44AF-A627-E1A4058DB3DA}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+>>>>>>> 63e10f4 (HW3 birthday)
 	EndGlobalSection
 EndGlobal
