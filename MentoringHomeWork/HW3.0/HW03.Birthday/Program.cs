@@ -1,10 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
-<<<<<<< HEAD
+
 using HW03.Birthday;
 
 var birthdayCalculator = new BirthdayCalculator();
 birthdayCalculator.CalculatePersonAge();
-=======
 
 namespace HW03.Birthday;
 
@@ -51,4 +50,4 @@ class Birthday
         birthday.Run();
     }
 }
->>>>>>> 63e10f4 (HW3 birthday)
+
