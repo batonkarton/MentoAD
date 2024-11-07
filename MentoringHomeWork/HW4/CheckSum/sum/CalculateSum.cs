@@ -1,6 +1,6 @@
 namespace Task2.sum;
 
-public class Sum
+public class CalculateSum
 {
     public void Task2()
     {

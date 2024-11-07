@@ -10,8 +10,7 @@ public class Sum3
         Getnumber();
         CheckSum();
         return;
-
-
+        
         void Getnumber()
         {
             Console.WriteLine("Please enter the first number: ");
@@ -45,27 +44,28 @@ public class Sum3
                 if (resultSum < result)
                 {
                     Console.WriteLine("There should be more");
-                    Task3();
+                    CheckSum();
                 }
                 else if (resultSum > result)
                 {
                     Console.WriteLine("There should be less");
-                    Task3();
+                    CheckSum();
                 }
                 else if (result != resultSum)
                 {
                     Console.WriteLine("Incorrect, please try again.");
-                    Task3(); // Рекурсивный вызов при неправильном ответе
+                    Task3(); 
                 }
                 else
                 {
                     Console.WriteLine("Correct! The result is: " + result);
                 }
+                
             }
             else
             {
                 Console.WriteLine("Error, incorrect input for the sum. Please try again.");
-                Task3(); // Рекурсивный вызов при некорректном вводе
+                Task3(); 
             }
         }
     }

@@ -12,8 +12,7 @@ public class Sum4
         GetOperator();
         CheckSum();
         return;
-
-
+        
         void Getnumber()
         {
             Console.WriteLine("Please enter the first number: ");

@@ -1,6 +1,6 @@
 namespace Task1.Calculate;
 
-public class Calculate
+public class Calculator
 {
      public void Plus()
      {

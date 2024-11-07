@@ -2,5 +2,6 @@
 
 using Task2.sum;
 
-Sum sum = new Sum();
+CalculateSum sum = new CalculateSum();
 sum.Task2();
+
