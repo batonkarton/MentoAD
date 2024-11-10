@@ -7,7 +7,7 @@ public class TimeOfDay
         Console.WriteLine("Time now " + DateTime.Now.TimeOfDay);
 
         TimeSpan date1 = DateTime.Now.TimeOfDay;
-        
+
         switch (date1.Hours)
         {
             case 9:

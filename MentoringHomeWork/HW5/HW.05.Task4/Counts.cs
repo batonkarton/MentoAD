@@ -9,7 +9,6 @@ public class Counts
         var txt = Console.ReadLine().ToUpper();
         int count = 0;
 
-
         foreach (var item in txt)
         {
             if (item == 'A')
