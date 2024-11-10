@@ -1,12 +1,10 @@
-using System.Runtime.InteropServices;
-
 namespace HW._05.Task1;
 
-public class CalculeteCount
+public class CalculateCount
 {
     public void Main()
     {
-        Console.WriteLine("Please, enter your number");
+        Console.WriteLine("Please, enter your number:");
 
         var getNumber = Convert.ToInt32(Console.ReadLine());
         var result = 0;

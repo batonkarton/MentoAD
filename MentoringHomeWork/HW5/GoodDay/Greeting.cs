@@ -8,21 +8,20 @@ public class Greeting
 
         TimeSpan date1 = DateTime.Now.TimeOfDay;
 
-        if (date1.Hours >= 9 && date1.Hours < 12)
+        switch (date1.Hours)
         {
-            Console.WriteLine("Good morning");
-        }
-        else if (date1.Hours >= 12 && date1.Hours < 15)
-        {
-            Console.WriteLine("Good day");
-        }
-        else if (date1.Hours >= 15 && date1.Hours < 23)
-        {
-            Console.WriteLine("Good evening");
-        }
-        else
-        {
-            Console.WriteLine("Good night");
+            case >= 9 and < 12:
+                Console.WriteLine("Good morning");
+                break;
+            case >= 12 and < 15:
+                Console.WriteLine("Good day");
+                break;
+            case >= 15 and < 23:
+                Console.WriteLine("Good evening");
+                break;
+            default:
+                Console.WriteLine("Good night");
+                break;
         }
     }
 }

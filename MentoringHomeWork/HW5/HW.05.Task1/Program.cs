@@ -2,5 +2,5 @@
 
 using HW._05.Task1;
 
-CalculeteCount calc = new CalculeteCount();
+CalculateCount calc = new CalculateCount();
 calc.Main();
