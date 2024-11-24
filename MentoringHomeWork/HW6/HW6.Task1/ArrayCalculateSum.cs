@@ -1,12 +1,12 @@
 namespace HW6.Task1;
 
-public class ArrayCalculateSum
+public static class ArrayCalculator
 {
     public static void ArraySum()
     {
         var rnd = new Random();
         var numbersRnd = new int[20];
-        
+
         for (var i = 0; i < 20; i++)
         {
             numbersRnd[i] = rnd.Next(100);

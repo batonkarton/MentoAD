@@ -2,5 +2,4 @@
 
 using HW6.Task1;
 
-var arrayCalculateSum = new ArrayCalculateSum();
-ArrayCalculateSum.ArraySum();
+ArrayCalculator.ArraySum();

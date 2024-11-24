@@ -1,15 +1,16 @@
 namespace HW6.Task2;
 
-public class NewArrayPosition
+public class ArrayService
 {
-    public static void AddNewPosition()
+    public void AddNewPosition()
     {
         int[] numbers = new int[6];
-        
+
         for (int i = 0; i < numbers.Length - 1; i++)
         {
             Console.WriteLine("Please enter the number: ");
             numbers[i] = Convert.ToInt32(Console.ReadLine());
+            
         }
 
         ShowResultArray(numbers);
@@ -29,12 +30,16 @@ public class NewArrayPosition
         ShowResultArray(numbers);
     }
 
-    private static void ShowResultArray(int[] numbers)
+    private void ShowResultArray(int[] numbers)
     {
-        Console.WriteLine("Yours numbers is : ");
-        foreach (var i in numbers)
+        Console.WriteLine("Yours numbers are : ");
+        for (int i = 0; i < numbers.Length; i++)
         {
-            Console.Write(i);
+            if (numbers[i] != 0)
+            {
+                    Console.Write(numbers[i]);
+                
+            }
         }
     }
 }
