@@ -7,7 +7,7 @@ for (int i = 0; i < arrayInt.Length / 2; i++)
     arrayInt[arrayInt.Length - 1 - i] = saveNumber;
 }
 
-foreach (var t in arrayInt)
+foreach (var arrayValue in arrayInt)
 {
-    Console.Write(t + " ");
+    Console.Write(arrayValue + " ");
 }

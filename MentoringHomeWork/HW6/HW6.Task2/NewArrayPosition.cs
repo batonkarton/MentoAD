@@ -10,7 +10,6 @@ public class ArrayService
         {
             Console.WriteLine("Please enter the number: ");
             numbers[i] = Convert.ToInt32(Console.ReadLine());
-            
         }
 
         ShowResultArray(numbers);

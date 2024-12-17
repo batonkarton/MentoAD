@@ -2,5 +2,5 @@
 
 using HW6.Task2;
 
-ArrayService ar = new ArrayService();
-ar.AddNewPosition();
+ArrayService arrayHandler = new ArrayService();
+arrayHandler.AddNewPosition();
