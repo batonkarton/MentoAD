@@ -4,7 +4,7 @@ void StartProgram()
 {
     DeleteTheLongestWord();
     SwapLongWithShortWord();
-    Count();
+    GetLetterAndPunctuationCount();
     SortsTheArrayFromLargestToSmallest();
 }
 
@@ -15,17 +15,15 @@ void DeleteTheLongestWord()
     string[] arrayText = someText.Split(' ');
 
     var maxCount = 0;
-    string longestWord = "";
     var indexOfLongestWord = 0;
 
     for (int j = 0; j < arrayText.Length; j++)
     {
         var count = arrayText[j].Length;
-        
+
         if (count > maxCount)
         {
             maxCount = count;
-            longestWord = arrayText[j];
             indexOfLongestWord = j;
         }
     }
@@ -44,11 +42,11 @@ void SwapLongWithShortWord()
     var someText = "Hello World my friend";
 
     string[] arrayText = someText.Split(' ');
-    
+
     var longestWordIndex = 0;
     var shortWordIndex = 0;
     var maxCount = 0;
-    
+
     for (int i = 0; i < arrayText.Length; i++)
     {
         var count = arrayText[i].Length;
@@ -68,33 +66,37 @@ void SwapLongWithShortWord()
     var temp = arrayText[shortWordIndex];
     arrayText[shortWordIndex] = arrayText[longestWordIndex];
     arrayText[longestWordIndex] = temp;
-    
+
     foreach (var i in arrayText)
     {
         Console.Write(i + " ");
     }
 }
 
-void Count()
+void GetLetterAndPunctuationCount()
 {
     var someText = "Hello,World,my friend";
-    
+
     char[] lines = someText.ToArray();
-    
+
     var count = 0;
-    
-    for (int i = 0; i < lines.Length; i++)
+
+    foreach (var t in lines)
     {
-        if (lines[i] == ' ')
+        if (char.IsLetter(t))
         {
-            continue;
+            count++;
         }
 
-        count++;
+        if (char.IsPunctuation(t))
+        {
+            count++;
+        }
     }
 
-    Console.WriteLine(count);
+    Console.Write($"Number of letters and punctuation : {count}\n");
 }
+
 
 void SortsTheArrayFromLargestToSmallest()
 {
@@ -106,11 +108,8 @@ void SortsTheArrayFromLargestToSmallest()
     {
         for (int j = i + 1; j < arrayText.Length; j++)
         {
-            
-            var value = arrayText[i];
-            var value2 = arrayText[j];
             var check = string.Empty;
-            
+
             if (arrayText[i].Length < arrayText[j].Length)
             {
                 check = arrayText[i];
