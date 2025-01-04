@@ -2,11 +2,10 @@
 
 string text = Console.ReadLine().ToUpper();
 
-string[] arrayResultText = text.Split(';');
+var arrayResultText = text.Split(';');
 
 for (int i = 0; i < arrayResultText.Length; i++)
 {
-    
     arrayResultText[i] = arrayResultText[i].Replace("O", "A").Replace("О", "А");
     
     foreach (var c in arrayResultText[i])

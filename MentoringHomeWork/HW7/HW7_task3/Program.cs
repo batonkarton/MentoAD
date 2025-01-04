@@ -1,39 +1,39 @@
-﻿var someText = "gdfgdf234dg54gf/23oP42";
+﻿var someText = "gdfgdf234dg54gf*23oP42";
+
+var someTextSplit = someText.Split('+','-','*','/');
 
 var number = string.Empty;
 var number2 = string.Empty;
-char operation = ' ';
 
-for (int i = 0; i < someText.Length; i++)
+foreach (var ch in someTextSplit[0])
 {
-    if (char.IsDigit(someText[i]))
+    if (char.IsNumber(ch))
+        
     {
-        number += someText[i];
-    } 
-    if (someText[i] == '*' || someText[i] == '+' || someText[i] == '-' || someText[i] == '/')
-    {
-        operation = someText[i];
-        for (int j = i + 1; j < someText.Length; j++)
-        {
-            if (char.IsDigit(someText[j]))
-            {
-                number2 += someText[j];
-            }
-        }
-        break;
+        number += ch;
     }
 }
 
-var num1 = Convert.ToInt32(number); 
-var num2 = Convert.ToInt32(number2);
-
-var sum = operation switch
+foreach (var ch2 in someTextSplit[1])
 {
-    '+' => num1 + num2,
-    '-' => num1 - num2,
-    '*' => num1 * num2,
-    '/' => num1 / num2,
-    _ => 0
-};
+    if (char.IsNumber(ch2))
+    {
+        number2 += ch2;
+    }
+}
 
-Console.WriteLine(sum);
+switch (true)
+{
+    case bool plus when someText.Contains("+"):
+        Console.WriteLine(int.Parse(number) + int.Parse(number2));
+        break;
+    case bool minus when someText.Contains("*"):
+        Console.WriteLine(int.Parse(number) - int.Parse(number2));
+        break;
+    case bool multiply when someText.Contains("-"):
+        Console.WriteLine(int.Parse(number) * int.Parse(number2));
+        break;
+    case bool divide when someText.Contains("/"):
+        Console.WriteLine(int.Parse(number) / int.Parse(number2));
+        break;
+}

@@ -12,7 +12,7 @@ void DeleteTheLongestWord()
 {
     var someText = "Hello World my friend";
 
-    string[] arrayText = someText.Split(' ');
+    var arrayText = someText.Split(' ');
 
     var maxCount = 0;
     var indexOfLongestWord = 0;
@@ -41,7 +41,7 @@ void SwapLongWithShortWord()
 {
     var someText = "Hello World my friend";
 
-    string[] arrayText = someText.Split(' ');
+    var arrayText = someText.Split(' ');
 
     var longestWordIndex = 0;
     var shortWordIndex = 0;
@@ -77,7 +77,7 @@ void GetLetterAndPunctuationCount()
 {
     var someText = "Hello,World,my friend";
 
-    char[] lines = someText.ToArray();
+    var lines = someText.ToArray();
 
     var count = 0;
 
@@ -102,7 +102,7 @@ void SortsTheArrayFromLargestToSmallest()
 {
     var someText = "Hello World my friend ";
 
-    string[] arrayText = someText.Split(" ");
+    var arrayText = someText.Split(" ");
 
     for (int i = 0; i < arrayText.Length - 1; i++)
     {
@@ -124,3 +124,4 @@ void SortsTheArrayFromLargestToSmallest()
         Console.Write(i);
     }
 }
+
