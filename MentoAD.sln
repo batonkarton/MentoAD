@@ -63,10 +63,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblyOne", "MentoringHom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblyTwo", "MentoringHomeWork\HW8\AssemblyTwo\AssemblyTwo.csproj", "{E621875A-8F88-45A4-BFAC-AE870E294F45}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "practic", "practic", "{2E198E28-744D-4198-AAE4-956D9DB6F071}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "members", "MentoringHomeWork\practic\members\members.csproj", "{C36A1BCB-C156-4F11-A82D-0C6745F382C3}"
-EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
