@@ -6,7 +6,7 @@ var motorcycle = new Motorcycle();
 sportBike.SportName = "SportBike";
 sportBike.MaxSpeed();
 sportBike.LessSpeed();
-sportBike.SportType = "Motorcycle";
+sportBike.SportType = "MotorcycleSport";
 sportBike.StartEngine();
 motorcycle.StopEngine();
 motorcycle._speed = 300;
