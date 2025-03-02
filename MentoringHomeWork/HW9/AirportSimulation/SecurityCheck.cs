@@ -2,20 +2,37 @@ namespace AirportSimulation;
 
 public class SecurityCheck
 {
-    public bool ValidateSecurity(Passenger passenger)
+    public static bool IsSecurityCheckPassed(Passenger passenger)
     {
-        
-        Console.WriteLine($"A safety check is underway for the passenger {passenger.Name}...");
-       
-        bool hasProhibitedItems = false;  
+        Console.WriteLine(
+            $"A safety check is underway for the passenger {passenger.FirstName} {passenger.LastName}...");
 
-        if (hasProhibitedItems)
+        Console.WriteLine("Do you have any prohibited items? (yes/no)");
+        var input = Console.ReadLine()?.ToLower();
+
+        var hasProhibitedItems = false;
+        if (input == "yes")
         {
-            Console.WriteLine($"\u274c {passenger.Name}: Prohibited items found!");
+            hasProhibitedItems = true;
+        }
+        else if (input != "no")
+        {
+            Console.WriteLine("Invalid input. Please enter 'yes' or 'no'.");
+            
             return false;
         }
 
-        Console.WriteLine($"\u2705 {passenger.Name}: Security check passed.");
+        if (hasProhibitedItems)
+        {
+            Console.WriteLine($"\u274c {passenger.FirstName} {passenger.LastName}: Prohibited items found!");
+            
+            return false;
+        }
+        
+        Console.ForegroundColor = ConsoleColor.Green; 
+        Console.WriteLine($"\u2705 {passenger.FirstName} {passenger.LastName}: Security check passed.");
+        Console.ResetColor();
+        
         return true;
     }
 }

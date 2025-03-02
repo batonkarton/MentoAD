@@ -1,41 +1,100 @@
-﻿using AirportSimulation;
+﻿namespace AirportSimulation;
 
 public class Program
 {
     public static void Main()
     {
-        Console.Write("Enter Passport Number: ");
-        string passportNumber = Console.ReadLine();
+        string? passportNumber;
+        while (true)
+        {
+            Console.Write("Enter Passport Number: ");
+            passportNumber = Console.ReadLine();
 
-        Console.Write("Enter Passport Issue Date (yyyy-mm-dd): ");
-        DateTime passportIssueDate = DateTime.Parse(Console.ReadLine());
+            if (!string.IsNullOrWhiteSpace(passportNumber))
+            {
+                break;
+            }
+            
+            Console.WriteLine("Passport number cannot be empty. Please enter a valid passport number.");
+        }
 
-        Console.Write("Enter Passport Expiration Date (yyyy-mm-dd): ");
-        DateTime passportExpirationDate = DateTime.Parse(Console.ReadLine());
-        
-        Passport passport = new Passport(passportNumber, passportIssueDate, passportExpirationDate);
-        
+        while (true)
+        {
+            Console.Write("Enter Passport Issue Date (yyyy-mm-dd): ");
+            if (DateTime.TryParse(Console.ReadLine(), out _))
+            {
+                break;
+            }
+
+            Console.ForegroundColor = ConsoleColor.Red; 
+            Console.WriteLine("Invalid date format. Please try again.");
+            Console.ResetColor();
+        }
+
+        DateTime passportExpirationDate;
+        while (true)
+        {
+            Console.Write("Enter Passport Expiration Date (yyyy-mm-dd): ");
+            if (DateTime.TryParse(Console.ReadLine(), out passportExpirationDate))
+            {
+                break;
+            }
+
+            Console.ForegroundColor = ConsoleColor.Red; 
+            Console.WriteLine("Invalid date format. Please try again.");
+            Console.ResetColor();
+        }
+
+        var passport = new Passport(passportNumber, passportExpirationDate);
+
         Console.Write("Enter First Name: ");
-        string firstName = Console.ReadLine();
+        var firstName = Console.ReadLine();
 
         Console.Write("Enter Last Name: ");
-        string lastName = Console.ReadLine();
+        var lastName = Console.ReadLine();
 
-        Console.Write("Enter Date of Birth (yyyy-mm-dd): ");
-        DateTime dateOfBirth = DateTime.Parse(Console.ReadLine());
-        
-        Console.WriteLine("Select Country: ");
-        foreach (var country in Enum.GetValues(typeof(Countries.CountryPassengers)))
+        DateTime dateOfBirth;
+        while (true)
+        {
+            Console.Write("Enter Date of Birth (yyyy-mm-dd): ");
+            if (DateTime.TryParse(Console.ReadLine(), out dateOfBirth))
+            {
+                break;
+            }
+
+            Console.ForegroundColor = ConsoleColor.Red; 
+            Console.WriteLine("Invalid date format. Please try again.");
+            Console.ResetColor();
+        }
+
+        Console.WriteLine("Select Country:");
+        foreach (var country in Enum.GetValues(typeof(CountryPassengers)))
         {
             Console.WriteLine($"{(int)country} - {country}");
         }
 
-        int countryChoice = int.Parse(Console.ReadLine());
-        Countries.CountryPassengers selectedCountry = (Countries.CountryPassengers)countryChoice;
-        
-        Passenger passenger = new Passenger(firstName, lastName, dateOfBirth, selectedCountry, passportNumber, passport);
-        
-        CheckIn checkIn = new CheckIn(passenger);
-        checkIn.CheckInByAirport();
+        CountryPassengers selectedCountry;
+        while (true)
+        {
+            Console.Write("Enter country number: ");
+            if (int.TryParse(Console.ReadLine(), out var countryChoice) &&
+                Enum.IsDefined(typeof(CountryPassengers), countryChoice))
+            {
+                selectedCountry = (CountryPassengers)countryChoice;
+         
+                break;
+            }
+
+            Console.ForegroundColor = ConsoleColor.Red; 
+            Console.WriteLine("Invalid selection. Please try again.");
+            Console.ResetColor();
+        }
+
+        if (firstName == null) return;
+        if (lastName == null) return;
+        var passenger = new Passenger(firstName, lastName, dateOfBirth, selectedCountry);
+
+        var checkIn = new CheckIn(passenger, passport);
+        checkIn.StartCheckIn();
     }
 }
