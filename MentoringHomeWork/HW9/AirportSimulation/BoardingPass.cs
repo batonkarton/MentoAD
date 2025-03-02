@@ -1,17 +1,10 @@
 namespace AirportSimulation;
 
-public class BoardingPass
+public class BoardingPass(Passenger passenger)
 {
-    public Passenger Passenger { get; }
-
-    public BoardingPass(Passenger passenger)
-    {
-        Passenger = passenger;
-    }
-
     public void PrintBoardingPass()
     {
-        Console.WriteLine($"The boarding pass: {Passenger.FirstName} {Passenger.LastName}, " +
-                          $"{Passenger.DateOfBirth.ToShortDateString()}, Countrie: {Passenger.Country}");
+        Console.WriteLine($"The boarding pass: {passenger.FirstName} {passenger.LastName}, " +
+                          $"{passenger.DateOfBirth.ToShortDateString()}, Countries: {passenger.Country}");
     }
 }
