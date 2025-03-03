@@ -14,26 +14,21 @@ public class Program
             {
                 break;
             }
-            else
-            {
-                Console.WriteLine("Passport number cannot be empty. Please enter a valid passport number.");
-            }
+            
+            Console.WriteLine("Passport number cannot be empty. Please enter a valid passport number.");
         }
 
-        DateTime passportIssueDate;
         while (true)
         {
             Console.Write("Enter Passport Issue Date (yyyy-mm-dd): ");
-            if (DateTime.TryParse(Console.ReadLine(), out passportIssueDate))
+            if (DateTime.TryParse(Console.ReadLine(), out _))
             {
                 break;
             }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red; 
-                Console.WriteLine("Invalid date format. Please try again.");
-                Console.ResetColor();
-            }
+
+            Console.ForegroundColor = ConsoleColor.Red; 
+            Console.WriteLine("Invalid date format. Please try again.");
+            Console.ResetColor();
         }
 
         DateTime passportExpirationDate;
@@ -44,15 +39,13 @@ public class Program
             {
                 break;
             }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red; 
-                Console.WriteLine("Invalid date format. Please try again.");
-                Console.ResetColor();
-            }
+
+            Console.ForegroundColor = ConsoleColor.Red; 
+            Console.WriteLine("Invalid date format. Please try again.");
+            Console.ResetColor();
         }
 
-        var passport = new Passport(passportNumber, passportIssueDate, passportExpirationDate);
+        var passport = new Passport(passportNumber, passportExpirationDate);
 
         Console.Write("Enter First Name: ");
         var firstName = Console.ReadLine();
@@ -68,36 +61,33 @@ public class Program
             {
                 break;
             }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red; 
-                Console.WriteLine("Invalid date format. Please try again.");
-                Console.ResetColor();
-            }
+
+            Console.ForegroundColor = ConsoleColor.Red; 
+            Console.WriteLine("Invalid date format. Please try again.");
+            Console.ResetColor();
         }
 
         Console.WriteLine("Select Country:");
-        foreach (var country in Enum.GetValues(typeof(Countries.CountryPassengers)))
+        foreach (var country in Enum.GetValues(typeof(CountryPassengers)))
         {
             Console.WriteLine($"{(int)country} - {country}");
         }
 
-        Countries.CountryPassengers selectedCountry;
+        CountryPassengers selectedCountry;
         while (true)
         {
             Console.Write("Enter country number: ");
             if (int.TryParse(Console.ReadLine(), out var countryChoice) &&
-                Enum.IsDefined(typeof(Countries.CountryPassengers), countryChoice))
+                Enum.IsDefined(typeof(CountryPassengers), countryChoice))
             {
-                selectedCountry = (Countries.CountryPassengers)countryChoice;
+                selectedCountry = (CountryPassengers)countryChoice;
+         
                 break;
             }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red; 
-                Console.WriteLine("Invalid selection. Please try again.");
-                Console.ResetColor();
-            }
+
+            Console.ForegroundColor = ConsoleColor.Red; 
+            Console.WriteLine("Invalid selection. Please try again.");
+            Console.ResetColor();
         }
 
         if (firstName == null) return;

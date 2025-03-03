@@ -1,9 +1,9 @@
-using AirportSimulation;
+namespace AirportSimulation;
 
-public class VisaCheck
+public static class VisaCheck
 {
-    public static bool IsVisaRequired(Countries.CountryPassengers country)
+    public static bool IsVisaRequired(CountryPassengers country)
     {
-        return !Enum.IsDefined(typeof(Countries.CountryPassengers), country);
+        return !Enum.IsDefined(typeof(CountryPassengers), country);
     }
 }
