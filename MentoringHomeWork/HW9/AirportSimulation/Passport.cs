@@ -2,7 +2,7 @@ namespace AirportSimulation;
 
 public class Passport
 {
-    private string? PassportNumber { get; }
+    private string PassportNumber { get; }
     private DateTime PassportExpirationDate { get; }
 
     public Passport(string? passportNumber,DateTime passportExpirationDate)
