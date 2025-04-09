@@ -1,39 +1,57 @@
+using Serilog;
 namespace ConsoleApp1;
 
 public class MotorcycleRepository : IMotorcycleRepository
-{ 
-    private List<Motorcycle?> _motorcycles = [];
-    
-    public void CreateMotorcycle(Motorcycle? motorcycle)
+{
+    private static List<Motorcycle?> _motorcycles = [];
+
+    public void Create(Motorcycle? motorcycle)
     {
         _motorcycles.Add(motorcycle);
+        Log.Information("Motorcycle saved :{@Moto}", motorcycle);
+
+        Log.Information("Motorcycle with ID {ID} added to repository.", motorcycle?.Id);
     }
 
-    public Motorcycle? GetMotorcycleById(int id)
+    public Motorcycle? GetId(int id)
     {
-        return _motorcycles.FirstOrDefault(m => m.Id == id);
+        var motorcycle = _motorcycles.FirstOrDefault(m => m != null && m.Id == id);
+        Log.Information("Searching for motorcycle with ID: {ID}. Found: {Found}", id,
+            motorcycle != null ? "Yes" : "No");
+        return motorcycle;
     }
 
-    public List<Motorcycle?> GetMotorcycles()
+    public List<Motorcycle?> GetList()
     {
         return _motorcycles;
     }
 
-    public void UpdateMotorcycle(Motorcycle motorcycle)
+    public void Update(Motorcycle motorcycle)
     {
         var existingMotorcycle = _motorcycles.FirstOrDefault(m => m.Id == motorcycle.Id);
-        if (existingMotorcycle == null) return;
-        existingMotorcycle.Brand = motorcycle.Brand;;
-        existingMotorcycle.Year = motorcycle.Year;
-        existingMotorcycle.Mileage = motorcycle.Mileage;
+
+        if (existingMotorcycle != null)
+        {
+            existingMotorcycle.Brand = motorcycle.Brand;
+            existingMotorcycle.Year = motorcycle.Year;
+            existingMotorcycle.Mileage = motorcycle.Mileage;
+
+            Log.Information("Motorcycle with ID {ID} updated.", motorcycle.Id);
+        }
+        else
+        {
+            Log.Warning("Motorcycle with ID {ID} not found for update.", motorcycle.Id);
+        }
     }
 
-    public void DeleteMotorcycle(int id)
+    public void Delete(Motorcycle? motorcycle)
     {
-       var  motorcycle = _motorcycles.FirstOrDefault(m => m.Id == id);
-       if (motorcycle != null)
-       {
-           _motorcycles.Remove(motorcycle);
-       }
+        var motorcycleToDelete = _motorcycles.FirstOrDefault(m => m.Id == motorcycle.Id);
+        if (motorcycle != null)
+        {
+            _motorcycles.Remove(motorcycleToDelete);
+            Log.Information("Motorcycle with ID {ID} has been removed from repository");
+        }
+        else throw new Exception("Motorcycle with ID {Motorcycle.id} not found");
     }
 }
