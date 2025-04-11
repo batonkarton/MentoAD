@@ -25,6 +25,8 @@ public class MotorcycleDeletedService : MotorcycleShowInfo
             }
         }
 
-        ShowAllInfo(repository);
+        Console.WriteLine("Do you want to see All motorcycles? y/n");
+        var input = Console.ReadKey();
+        
     }
 }

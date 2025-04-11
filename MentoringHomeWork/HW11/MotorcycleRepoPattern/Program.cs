@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using Serilog;
+﻿using Serilog;
 
 namespace ConsoleApp1;
 public class Program
@@ -8,6 +7,7 @@ public class Program
     {
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console()
+            .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
             .CreateLogger();
         Log.Information("Starting up");
         
@@ -24,12 +24,14 @@ public class Program
         service.AskUserToCreateMotorcycle();
 
         Log.Information("Updated new motorcycle with ID: {ID}");
-        service.UpdateMotorcycle(retrievedMotorcycle);
+        service.UpdateMotorcycle();
         Log.Information("motorcycle updated");
 
         Log.Information("deleted motorcycle");
-        service.DeleteMotorcycle(retrievedMotorcycle);
+        service.DeleteMotorcycle();
         
         Log.Information("Application finished");
+        
+        Log.CloseAndFlush();
     }
 }

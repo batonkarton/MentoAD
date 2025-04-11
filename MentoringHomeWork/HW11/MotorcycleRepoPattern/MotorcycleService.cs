@@ -5,7 +5,7 @@ public class MotorcycleService : MotorcycleShowInfo
 {
     private readonly MotorcycleRepository _repository = new();
     
-    public Motorcycle? CreateMotorcycleFromUser()
+    public Motorcycle CreateMotorcycleFromUser()
     {
         var moto = new Motorcycle();
         ValidateMotorcycleFromUser(moto);
@@ -36,10 +36,9 @@ public class MotorcycleService : MotorcycleShowInfo
         while (true)
         {
             Console.WriteLine("\n Enter Motorcycle id: ");
-            var input = Console.ReadLine();
-            if (int.TryParse(input, out int motoId))
-            { 
-                if (_repository.GetList().Any(m => m.Id == motoId))
+            var motoId = Convert.ToInt32(Console.ReadLine());
+           
+                if (_repository.GetAll().Any(m => m.Id == motoId))
                 {
                     Log.Warning("A motorcycle with this ID already exists. Please enter a different ID.");
                 }
@@ -48,12 +47,6 @@ public class MotorcycleService : MotorcycleShowInfo
                     moto.Id = motoId;
                     break;
                 }
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please enter a valid number for the ID.");
-                Log.Warning("Invalid input. Please enter a valid number for the ID.{Input}", input);
-            }
         }
 
         while (true)
@@ -80,7 +73,7 @@ public class MotorcycleService : MotorcycleShowInfo
                 break;
             }
 
-            Console.WriteLine("Invalid input. Please enter a valid year.");
+            Console.WriteLine("Invalid input. Year must be more then 1900.");
             Log.Warning("Invalid input{Input}",yearString);
         }
 
@@ -88,9 +81,9 @@ public class MotorcycleService : MotorcycleShowInfo
         {
             Console.WriteLine("Enter Motorcycle mileage: ");
             var odometr = Console.ReadLine();
-            if (int.TryParse(odometr, out var motoOd) && motoOd >= 0)
+            if (int.TryParse(odometr, out var motoOdometr) && motoOdometr >= 0)
             {
-                moto.Mileage = motoOd;
+                moto.Mileage = motoOdometr;
                 
                 break;
             }
@@ -98,7 +91,6 @@ public class MotorcycleService : MotorcycleShowInfo
             Console.WriteLine("Invalid input. Please enter a valid mileage.");
             Log.Warning("Invalid input {Input}",odometr);
         }
-        ShowAllInfo(_repository);
     }
 
     public void SaveMotorcycle(Motorcycle? motorcycle)
@@ -108,16 +100,16 @@ public class MotorcycleService : MotorcycleShowInfo
 
     public Motorcycle? GetMotorcycleById(int id)
     {
-        return _repository.GetId(id);
+        return _repository.GetBYId(id);
     }
 
-    public void UpdateMotorcycle(Motorcycle motorcycle)
+    public void UpdateMotorcycle()
     {
         var updateService = new MotorcycleUpdateService();
         updateService.Update(_repository);
     }
 
-    public void DeleteMotorcycle(Motorcycle id)
+    public void DeleteMotorcycle()
     {
         var deleteService = new MotorcycleDeletedService();
         deleteService.Delete(_repository);
@@ -132,7 +124,7 @@ public class MotorcycleService : MotorcycleShowInfo
         {
             Log.Information("Searching for motorcycle with ID: {ID}", id);
 
-            var motorcycle = _repository.GetId(id);
+            var motorcycle = _repository.GetBYId(id);
             if (motorcycle != null)
             {
                 Log.Information("Motorcycle with ID {ID} found: {Brand}, {Year}, {Mileage}",
