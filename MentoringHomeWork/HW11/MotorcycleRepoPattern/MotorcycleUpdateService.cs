@@ -4,7 +4,7 @@ namespace ConsoleApp1;
 public class MotorcycleUpdateService : MotorcycleShowInfo
 {
     private readonly MotorcycleService _motorcycleService = new();
-
+    
     public void Update(MotorcycleRepository repository)
     {
         while (true)
@@ -15,7 +15,7 @@ public class MotorcycleUpdateService : MotorcycleShowInfo
 
             if (inputAnswer.Key == ConsoleKey.Y)
             {
-                var selectedMotorcycle = _motorcycleService.SelectMotorcycle();
+                var selectedMotorcycle = _motorcycleService.SelectMotorcycleById();
 
                 Console.WriteLine("What would you like to update? ( brand, year, mileage)\n");
                 var inputUpdate = Console.ReadLine()?.ToLower();
