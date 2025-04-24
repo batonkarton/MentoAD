@@ -2,9 +2,8 @@
 using SongProject;
 
 var song = new Song();
-var askUser = new AskUser();
-var songData = askUser.GetSongData(song);
+var songQuestion = SongQuestionnaire.GetSongData(song);
 
-var json = JsonConvert.SerializeObject(songData , Formatting.Indented);
+var json = JsonConvert.SerializeObject(songQuestion , Formatting.Indented);
 
 Console.WriteLine(json);

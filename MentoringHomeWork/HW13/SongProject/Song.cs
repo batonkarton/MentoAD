@@ -6,9 +6,9 @@ public class Song
     public int Minutes { get; set; }
     public string Artist { get; set; }
     public int AlbumYear { get; set; }
-    public Genre SongGenre { get; set; }
+    public GenreOfMusic Genre { get; set; }
 
-    public enum Genre
+    public enum GenreOfMusic
     {
         Classical = 0,
         Rok = 1,
