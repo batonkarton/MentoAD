@@ -1,4 +1,5 @@
 namespace SongProject;
+
 public static class SongQuestionnaire
 {
     public static object GetSongData(Song song)
@@ -6,7 +7,7 @@ public static class SongQuestionnaire
         InputInformationFromUser(song);
 
         var result = new { song.Name, song.AlbumYear, song.Artist, song.Minutes, SongGenre = song.Genre.ToString() };
-        
+
         return result;
     }
 
@@ -27,11 +28,8 @@ public static class SongQuestionnaire
             Console.WriteLine("Please enter the genre of the song (e.g. 0, 1, 2 or Classical, Rock, Romance...):");
             var genreInput = Console.ReadLine();
 
-            if (int.TryParse(genreInput, out int genreNumber) && Enum.IsDefined(typeof(Song.GenreOfMusic), genreNumber))
-            {
-                song.Genre = (Song.GenreOfMusic)genreNumber;
-            }
-            else if (Enum.TryParse(genreInput, out Song.GenreOfMusic parsedGenre) && Enum.IsDefined(typeof(Song.GenreOfMusic), parsedGenre))
+            if (Enum.TryParse(genreInput, out Song.GenreOfMusic parsedGenre) &&
+                Enum.IsDefined(typeof(Song.GenreOfMusic), parsedGenre))
             {
                 song.Genre = parsedGenre;
             }
@@ -50,14 +48,16 @@ public static class SongQuestionnaire
         while (true)
         {
             Console.WriteLine("Please enter the artist of the song:");
-            string input = Console.ReadLine();
+            var input = Console.ReadLine();
 
             if (!string.IsNullOrWhiteSpace(input))
             {
                 song.Artist = input;
-                
+
                 break;
-            } Console.WriteLine("Artist name cannot be empty. Please try again.");
+            }
+
+            Console.WriteLine("Artist name cannot be empty. Please try again.");
         }
     }
 
@@ -70,9 +70,11 @@ public static class SongQuestionnaire
             if (int.TryParse(minutesInput, out var songMinute) && songMinute > 0)
             {
                 song.Minutes = songMinute;
-                
+
                 break;
-            } Console.WriteLine("Invalid time. Please enter a positive number.");
+            }
+
+            Console.WriteLine("Invalid time. Please enter a positive number.");
         }
     }
 
@@ -82,13 +84,15 @@ public static class SongQuestionnaire
         {
             Console.WriteLine("Please enter the year of the song:");
             var yearInput = Console.ReadLine();
-            
+
             if (int.TryParse(yearInput, out var songAlbumYear))
             {
                 song.AlbumYear = songAlbumYear;
-                
+
                 break;
-            } Console.WriteLine("Invalid year. Please enter a valid year (1900-Current Year).");
+            }
+
+            Console.WriteLine("Invalid year. Please enter a valid year (1900-Current Year).");
         }
     }
 
@@ -97,14 +101,16 @@ public static class SongQuestionnaire
         while (true)
         {
             Console.WriteLine("Please enter the name of the song:");
-            string input = Console.ReadLine();
+            var input = Console.ReadLine();
 
             if (!string.IsNullOrWhiteSpace(input))
             {
                 song.Name = input;
-                
+
                 break;
-            } Console.WriteLine("Song name cannot be empty. Please try again.");
+            }
+
+            Console.WriteLine("Song name cannot be empty. Please try again.");
         }
     }
 }
